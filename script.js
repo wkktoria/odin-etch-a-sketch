@@ -28,7 +28,16 @@ function createGrid(size) {
 }
 
 function hoverEffect(event) {
-  event.target.style.backgroundColor = generateRadomColor();
+  if (!event.target.classList.contains("color")) {
+    event.target.style.backgroundColor = generateRadomColor();
+    event.target.style.opacity = 0.1;
+    event.target.classList.add("color");
+  } else {
+    const currentOpacity = +event.target.style.opacity;
+    if (currentOpacity < 1) {
+      event.target.style.opacity = currentOpacity + 0.1;
+    }
+  }
 }
 
 function getRandomNumber(min, max) {
@@ -39,9 +48,8 @@ function generateRadomColor() {
   const red = getRandomNumber(0, 255);
   const green = getRandomNumber(0, 255);
   const blue = getRandomNumber(0, 255);
-  const alpha = Math.random() * 1;
 
-  return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+  return `rgb(${red}, ${green}, ${blue})`;
 }
 
 createGrid(DEFAULT_SIZE);
