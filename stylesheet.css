@@ -50,6 +50,7 @@ footer {
 
 .square {
   flex-basis: calc(100% / 16);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 #change-size-button {
