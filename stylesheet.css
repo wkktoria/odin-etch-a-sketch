@@ -17,24 +17,26 @@ body {
 .container {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 #grid {
+  border: 1px solid #000;
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 400px;
+  max-width: 400px;
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
 }
 
 .square {
-  width: 25px;
-  height: 25px;
-  border: 1px solid black;
+  flex-basis: calc(100% / 16);
 }
 
-.square:nth-child(16n + 1) {
-  width: 100%;
-  border: 0;
-  height: 0;
+#change-size-button {
+  padding: 10px 20px;
+  margin-bottom: 30px;
 }

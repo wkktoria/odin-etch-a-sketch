@@ -1,12 +1,30 @@
 const grid = document.querySelector("#grid");
+const changeSizeButton = document.querySelector("#change-size-button");
 
-const GRID_SIZE = 16 * 16;
+const MIN_SIZE = 2;
+const MAX_SIZE = 100;
+const DEFAULT_SIZE = 16;
 
-for (let i = 0; i < GRID_SIZE; i++) {
-  let square = document.createElement("div");
-  square.classList.add("square");
-  square.addEventListener("mouseenter", hoverEffect);
-  grid.appendChild(square);
+changeSizeButton.addEventListener("click", (event) => {
+  const size = +prompt(`Size (min = ${MIN_SIZE}; max = ${MAX_SIZE}):`);
+  console.log(size);
+
+  if (isNaN(size) || size < MIN_SIZE || size > MAX_SIZE) {
+    alert("Invalid size!");
+  } else {
+    grid.innerHTML = "";
+    createGrid(size);
+  }
+});
+
+function createGrid(size) {
+  for (let i = 0; i < size * size; i++) {
+    let square = document.createElement("div");
+    square.classList.add("square");
+    square.style["flex-basis"] = `calc(100% / ${size})`;
+    square.addEventListener("mouseenter", hoverEffect);
+    grid.appendChild(square);
+  }
 }
 
 function hoverEffect(event) {
@@ -25,3 +43,5 @@ function generateRadomColor() {
 
   return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
 }
+
+createGrid(DEFAULT_SIZE);
