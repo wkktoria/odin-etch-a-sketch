@@ -1,5 +1,6 @@
 const grid = document.querySelector("#grid");
 const changeSizeButton = document.querySelector("#change-size-button");
+const clearGridButton = document.querySelector("#clear-grid-button");
 
 const MIN_SIZE = 2;
 const MAX_SIZE = 100;
@@ -12,9 +13,14 @@ changeSizeButton.addEventListener("click", (event) => {
   if (isNaN(size) || size < MIN_SIZE || size > MAX_SIZE) {
     alert("Invalid size!");
   } else {
-    grid.innerHTML = "";
+    clearGrid();
     createGrid(size);
   }
+});
+
+clearGridButton.addEventListener("click", () => {
+  clearGrid();
+  createGrid(DEFAULT_SIZE);
 });
 
 function createGrid(size) {
@@ -50,6 +56,10 @@ function generateRadomColor() {
   const blue = getRandomNumber(0, 255);
 
   return `rgb(${red}, ${green}, ${blue})`;
+}
+
+function clearGrid() {
+  grid.innerHTML = "";
 }
 
 createGrid(DEFAULT_SIZE);

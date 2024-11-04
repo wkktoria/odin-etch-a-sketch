@@ -53,7 +53,13 @@ footer {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-#change-size-button {
-  padding: 10px 20px;
+.controls {
+  width: 400px;
   margin-bottom: 30px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+button {
+  padding: 10px 20px;
 }
