@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+
 html {
   box-sizing: border-box;
 }
@@ -12,6 +14,16 @@ html {
 
 body {
   height: 100vh;
+  font-family: "Caveat", cursive;
+}
+
+a {
+  color: inherit;
+}
+
+footer {
+  margin-top: auto;
+  padding: 10px 0;
 }
 
 .container {
@@ -20,6 +32,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.title {
+  margin: 40px 0;
 }
 
 #grid {
